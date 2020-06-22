@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Voltage Drop Simulator</title>
+</head>
+
+
+<body onload="loop()">
+
+    <div class="nav-bar">
+        <div class="home">
+            <a href="https://amunro11.github.io/LandingPage/">Home</a>
+        </div>
+        <div class="explanation">
+            <a href="https://amunro11.github.io/LandingPage/tutorials.html">Tutorials</a>     
+        </div>
+    </div>
+
+   
+    
+    <div class="container">
+       
+        <h1 id="VoltageSim">VOLTAGE DROP SIMULATOR</h1> <br> <br> <br>
+       
+        <div class="tablecontainer">
+            <table align="center" id="mytable" class="content-table">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>    
+                <tbody>     
+                    <tr>
+                        <td>Distance</td>
+                        <td> <span id="distanceResult"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Current</td>
+                        <td> <span id="currentResult"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Wire Gauge</td>
+                        <td><span id="awg"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Source Voltage</td>
+                        <td><span id="sourceVoltageResult"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Load Voltage</td>
+                        <td><Span id="loadVoltageResult"></Span></td>
+                    </tr>
+                    <tr>
+                        <td>Dropped Voltage</td>
+                        <td><span id="droppedVoltageResult"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Dropped Voltage %</td>
+                        <td><span id="droppedVoltagePercent"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="slidecontainer">
+            <h2>Distance <br> <span id="distance"></span></h2>
+            <h3>Use arrow keys for fine adjustment</h3>
+            <input type="range" min="50" max="1000" value="50" class="slider" id="distance-slider">
+        </div>  <br>
+
+
+
+        <div class="slidecontainer">
+            <h2>Current <br> <span id="current"></span></h2>
+            <h3>Use arrow keys for fine adjustment</h3>
+            <input type="range" min="1" max="15" value="1" class="slider" id="current-slider">
+        </div>  <br> <br> <br> <br>
+        
+
+
+        <div class="radiobuttons">
+            <div class="voltageselect" id="voltage">
+                <h2>Source Voltage</h2>
+                    <input type="radio" id="r1" name="sourceVoltage" value="120" onclick="displaySourceVoltage()"> 120V   <br>
+                    <input type="radio" id="r2" name="sourceVoltage" value="240" onclick="displaySourceVoltage()" > 240V                     <br>
+                    <input type="radio" id="r3" name="sourceVoltage" value="480" onclick="displaySourceVoltage()" > 480V                     <br>  
+                    <input type="radio" id="r4" name="sourceVoltage" value="600" onclick="displaySourceVoltage()"> 600V                     <br>   
+                    <input type="radio" id="r5" name="sourceVoltage" value="1000" onclick="displaySourceVoltage()" > 1KV                     <br>
+            </div>
+ 
+
+            <div class="gaugeselect " id="gauge">
+                <h2>Wire Gauge</h2> 
+                <input type="radio" id="r6" name="awg" value="14" onclick="displayGauge()"> 14 AWG                        <br>
+                <input type="radio" id="r7" name="awg" value="10" onclick="displayGauge()"> 10 AWG                        <br>
+                <input type="radio" id="r8" name="awg" value="6" onclick="displayGauge()"> 6 AWG                         <br>  
+                <input type="radio" id="r9" name="awg" value="2" onclick="displayGauge()"> 2 AWG                         <br>  
+                <input type="radio" id="r10" name="awg" value="4" onclick="displayGauge()"> 4 AUGHT                       <br>   
+            </div>
+        </div>  <br> <br> <br> <hr>
+
+
+        <footer>
+            The simulation does not take any AC properties into effect such as inductive or capacitive reactance. This is a purely resistive DC circuit. Current is limited to
+            selected wire gauge. Limitations based off of 75 degree column of table 2 in the Canadian Electrical Code, as well as 14 and 10 gauge being limited to 15 and 30 amps
+            respectively based on rule 14-104 2).  
+        </footer>
+
+    </div>
+
+    <script src="script.js"> </script>
+
+</body>
+
+</html>
